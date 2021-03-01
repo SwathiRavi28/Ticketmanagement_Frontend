@@ -40,7 +40,7 @@ export default class CreateTicket extends Component {
       });
 
       // get list of users to set default assignee
-      axios.get('http://ticketmanagementbackend.herokuapp.com:5000/users/')
+      axios.get('http://ticketmanagementbackend.herokuapp.com/users/')
         .then(res => {
             if(res.data.length > 0) {
                 this.setState({
@@ -52,7 +52,7 @@ export default class CreateTicket extends Component {
         .catch((error) => { console.log(error); })
 
         // get list of agents to set default agent
-      axios.get('http://ticketmanagementbackend.herokuapp.com:5000/agents/')
+      axios.get('http://ticketmanagementbackend.herokuapp.com/agents/')
         .then(res => {
             if(res.data.length > 0) {
                 this.setState({
@@ -119,7 +119,7 @@ export default class CreateTicket extends Component {
             type: this.state.type
         }
 
-        axios.post('http://ticketmanagementbackend.herokuapp.com:5000/tickets/create', ticket)
+        axios.post('http://ticketmanagementbackend.herokuapp.com/tickets/create', ticket)
             .then(res => console.log(res.data))
 
         alert('Successfully created.');
