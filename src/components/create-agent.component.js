@@ -16,7 +16,7 @@ export default class Createagent extends Component {
 
     componentDidMount() {
         // get list of agents to set default agent
-        axios.get('http://ticketmanagementbackend.herokuapp.com:5000/agents/')
+        axios.get('http://ticketmanagementbackend.herokuapp.com/agents/')
             .then(res => {
                 if(res.data.length > 0) {
                     this.setState({
@@ -42,7 +42,7 @@ export default class Createagent extends Component {
 
         console.log(agent);
 
-        axios.post('http://ticketmanagementbackend.herokuapp.com:5000/agents/create', agent)
+        axios.post('http://ticketmanagementbackend.herokuapp.com/agents/create', agent)
             .then(res => console.log(res.data));
 
         // clear form
