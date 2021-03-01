@@ -33,7 +33,7 @@ export default class EditTicket extends Component {
 
     componentDidMount() {
         // default state of ticket
-        axios.get('http://ticketmanagementbackend.herokuapp.com:5000/tickets/'+this.props.match.params.id)
+        axios.get('http://ticketmanagementbackend.herokuapp.com/tickets/'+this.props.match.params.id)
             .then(res => {
                 this.setState({
                     title: res.data.title,
@@ -48,7 +48,7 @@ export default class EditTicket extends Component {
             .catch((error) => { console.log(error); })
 
         // get list of users to select from
-        axios.get('http://ticketmanagementbackend.herokuapp.com:5000/users/')
+        axios.get('http://ticketmanagementbackend.herokuapp.com/users/')
         .then(res => {
             if(res.data.length > 0) {
                 this.setState({
@@ -59,7 +59,7 @@ export default class EditTicket extends Component {
         .catch((error) => { console.log(error); })
 
         // get list of agents to select from
-        axios.get('http://ticketmanagementbackend.herokuapp.com:5000/agents/')
+        axios.get('http://ticketmanagementbackend.herokuapp.com/agents/')
         .then(res => {
             if(res.data.length > 0) {
                 this.setState({
@@ -126,7 +126,7 @@ export default class EditTicket extends Component {
             type: this.state.type
         }
 
-        axios.post('http://ticketmanagementbackend.herokuapp.com:5000/tickets/update/' + this.props.match.params.id, ticket)
+        axios.post('http://ticketmanagementbackend.herokuapp.com/tickets/update/' + this.props.match.params.id, ticket)
             .then(res => console.log(res.data));
             
         alert('Successfully updated.');
