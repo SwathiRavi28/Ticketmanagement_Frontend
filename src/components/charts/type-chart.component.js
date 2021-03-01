@@ -32,7 +32,7 @@ export default class TypeChart extends Component {
 	}
 
 	componentDidMount() {
-        axios.get('http://ticketmanagementbackend.herokuapp.com:5000/tickets/')
+        axios.get('http://ticketmanagementbackend.herokuapp.com/tickets/')
             .then(res => {
                 this.setState({ tickets: res.data });
                 this.state.tickets.map(ticket => {
