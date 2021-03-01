@@ -28,7 +28,7 @@ export default class Manageagents extends Component {
 	}
 
     componentDidMount() {
-        axios.get('http://ticketmanagementbackend.herokuapp.com:5000/agents/')
+        axios.get('http://ticketmanagementbackend.herokuapp.com/agents/')
             .then(res => {
                 this.setState({ agents: res.data },()=> console.log("agents",this.state.agents))
                
@@ -37,7 +37,7 @@ export default class Manageagents extends Component {
     }
 
     componentDidUpdate() {
-        axios.get('http://ticketmanagementbackend.herokuapp.com:5000/agents/')
+        axios.get('http://ticketmanagementbackend.herokuapp.com/agents/')
             .then(res => {
                 this.setState({ agents: res.data })
             })
@@ -45,7 +45,7 @@ export default class Manageagents extends Component {
     }
 
     deleteagent(id) {
-	    axios.delete('http://ticketmanagementbackend.herokuapp.com:5000/agents/'+id)
+	    axios.delete('http://ticketmanagementbackend.herokuapp.com/agents/'+id)
 	        .then(res => { console.log(res.data)});
 
 	    // update tickets array to all agents without matching id
